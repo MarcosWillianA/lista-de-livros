@@ -18,11 +18,21 @@ class Livro {
 
 class Biblioteca {
     constructor() {
-        this.livros = [];
+        this.livros = this.carregarLivros();
+    }
+
+    carregarLivros() {
+        const livrosJSON = localStorage.getItem('livros');
+        return livrosJSON ? JSON.parse(livrosJSON) : [];
+    }
+
+    salvarLivros() {
+        localStorage.setItem('livros', JSON.stringify(this.livros));
     }
 
     adicionarLivro (livro) {
         this.livros.push(livro);
+        this.salvarLivros();
         this.atualizarTabela();
     }
 
@@ -55,17 +65,20 @@ class Biblioteca {
 
     removerLivro(index) {
         this.livros.splice(index, 1);
+        this.salvarLivros();
         this.atualizarTabela();
         console.log('Livro removido');
     }
 
     limparTabela() {
         this.livros = [];
+        localStorage.removeItem('livros');
         this.atualizarTabela();
     }
 };
 
 const biblioteca = new Biblioteca();
+biblioteca.atualizarTabela();
 
 formulario.addEventListener('submit', evento => {
     evento.preventDefault();
