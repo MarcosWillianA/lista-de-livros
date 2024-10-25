@@ -28,6 +28,17 @@ input[type=text] {
     padding-left: 3px;
 }
 
+#alerta {
+    display: none;
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0;
+    background-color: #dc2626;
+    color: white;
+    font-size: .8em;
+    text-align: center;
+}
+
 input[type=submit] {
     width: 100%;
     margin: 10px 0;
@@ -53,6 +64,20 @@ table {
 th, tr, td {
     border: 1px solid #e5e7eb;
     font-size: .9em;
+}
+
+#limpar {
+    width: 100%;
+    margin: 10px 0;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: #0284c7;
+    color: white;
+}
+
+#limpar:active {
+    background-color: #38bdf8;
 }
 
 footer {

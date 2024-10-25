@@ -20,6 +20,7 @@
             <input type="text" name="autor" id="autor">
             <label for="isbn">ISBN</label><br>
             <input type="text" name="isbn" id="isbn">
+            <span id="alerta">Preencha os campos acima corretamente!</span>
             <input type="submit" value="Enviar" id="enviar">
         </form>
         <table id="tabela">
@@ -28,17 +29,20 @@
                     <th>Título</th>
                     <th>Autor</th>
                     <th>ISBN</th>
+                    <th>Limpar</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>Lorem</td>
                     <td>Ipsum</td>
-                    <td>123</td>
+                    <td>1234</td>
+                    <td><button id="remover-livro"><i class="fa-solid fa-xmark"></i></button></td>
                 </tr>
+                <!-- Os elementos serão inseridos aqui dinamicamente-->
             </tbody>
         </table>
-        <button id="#limpar">limpar</button>
+        <button id="limpar">Limpar</button>
     </main>
     <footer>
         <p>App criado por Marcos Willian</p>
