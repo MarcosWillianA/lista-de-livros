@@ -25,6 +25,7 @@ header i {
 input[type=text] {
     width: 100%;
     margin-bottom: 5px;
+    padding-left: 3px;
 }
 
 input[type=submit] {
@@ -43,6 +44,7 @@ input[type=submit]:active {
 
 table {
     width: 100%;
+    margin-top: 25px;
     border: 1px solid orangered;
     border-collapse: collapse;
     text-align: left;
@@ -50,6 +52,7 @@ table {
 
 th, tr, td {
     border: 1px solid #e5e7eb;
+    font-size: .9em;
 }
 
 footer {
