@@ -66,6 +66,18 @@ th, tr, td {
     font-size: .9em;
 }
 
+.remover-livro {
+    padding: 0 4px;
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    font-size: .9em;
+}
+
+.remover-livro:active {
+    background-color: #ef4444;
+}
+
 #limpar {
     width: 100%;
     margin: 10px 0;

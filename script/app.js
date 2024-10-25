@@ -35,14 +35,14 @@ class Biblioteca {
             <td>${livro.titulo}</td>
             <td>${livro.autor}</td>
             <td>${livro.isbn}</td>
-            <td><i class="fa-solid fa-xmark"></i></td>
+            <td><button class="remover-livro"><i class="fa-solid fa-xmark"></i></button></td>
             `;
             tbody.appendChild(tr);
         });
     };
 
     removerLivro() {
-
+        console.log('Botão funcionando!')
     }
 
     limparTabela() {
@@ -73,6 +73,11 @@ formulario.addEventListener('submit', evento => {
     isbn.value = '';
     
 });
+
+const removerLivro = document.querySelectorAll('.remover-livro');
+removerLivro.addEventListener('click', () => {
+    removerLivro();
+})
 
 limpar.addEventListener('click', () => {
     console.log('Botão funcionando')
