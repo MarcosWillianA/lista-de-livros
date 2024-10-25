@@ -29,20 +29,34 @@ class Biblioteca {
     atualizarTabela() {
         tbody.innerHTML = '';
         
-        this.livros.forEach(livro => {
+        this.livros.forEach((livro, index) => {
             const tr = document.createElement('tr');
             tr.innerHTML = `
             <td>${livro.titulo}</td>
             <td>${livro.autor}</td>
             <td>${livro.isbn}</td>
-            <td><button class="remover-livro"><i class="fa-solid fa-xmark"></i></button></td>
+            <td><button class="remover-livro" data-index=${index}><i class="fa-solid fa-xmark"></i></button></td>
             `;
             tbody.appendChild(tr);
         });
-    };
 
-    removerLivro() {
-        console.log('Botão funcionando!')
+        this.adicionarEventosRemocao();
+    }
+
+    adicionarEventosRemocao() {
+        const removerLivro = document.querySelectorAll('.remover-livro');
+        removerLivro.forEach(botao => {
+            botao.addEventListener('click', evento => {
+                const index = evento.target.closest('button').dataset.index;
+                this.removerLivro(index);
+            });
+        });
+    }
+
+    removerLivro(index) {
+        this.livros.splice(index, 1);
+        this.atualizarTabela();
+        console.log('Livro removido');
     }
 
     limparTabela() {
@@ -56,9 +70,7 @@ const biblioteca = new Biblioteca();
 formulario.addEventListener('submit', evento => {
     evento.preventDefault();
 
-    titulo.value;
-    autor.value;
-    isbn.value;
+    
     if (titulo.value === '' || autor.value === '' || isbn.value === '') {
         console.log('Insira um livro válido');
         alerta.style.display = 'block';
@@ -73,11 +85,6 @@ formulario.addEventListener('submit', evento => {
     isbn.value = '';
     
 });
-
-const removerLivro = document.querySelectorAll('.remover-livro');
-removerLivro.addEventListener('click', () => {
-    removerLivro();
-})
 
 limpar.addEventListener('click', () => {
     console.log('Botão funcionando')
